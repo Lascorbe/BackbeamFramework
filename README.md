@@ -1,7 +1,7 @@
 BackbeamFramework
 =================
 
-iOS SDK for [backbeam.io](http://backbeam.io). At this moment this iOS libary depends on [AFNetworking](https://github.com/AFNetworking/AFNetworking).
+iOS SDK for [backbeam.io](http://backbeam.io). At this moment this iOS library depends on [AFNetworking](https://github.com/AFNetworking/AFNetworking).
 
 For Facebook integration the Facebook SDK 3.x is needed.
 
@@ -14,18 +14,23 @@ Configure your application
     
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
-        [Backbeam setProject:@"your_project" sharedKey:@"" secretKey:@""];
-        [Backbeam setTwitterConsumerKey:@"…" consumerSecret:@"…"]; // optional
+        [Backbeam setProject:@"your_project" 
+                   sharedKey:@"" 
+                   secretKey:@""];
+        [Backbeam setTwitterConsumerKey:@"…" 
+                         consumerSecret:@"…"]; // optional
     }
     
 Make queries
 ------------
 
     BBQuery* query = [BBQuery queryForEntity:@"event"];
-    [query fetch:100 offset:0 success:^(NSArray* objects, NSDictionary* references) {
-        // do something
-    } failure:^(NSError* error) {
-        // something bad happened
+    [query fetch:100 
+          offset:0 
+         success:^(NSArray* objects, NSDictionary* references) {
+            // do something
+         } failure:^(NSError* error) {
+            // something went wrong
     }];
 
 
